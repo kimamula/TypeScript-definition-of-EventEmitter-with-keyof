@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "noImplicitAny": true,
+      "strictNullChecks": true,
+      "target": "es6"
+    },
+    "files": [
+      "index.ts"
+    ]
+}

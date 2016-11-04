@@ -1,0 +1,25 @@
+{
+  "name": "typescript-definition-of-eventemitter-with-keyof",
+  "version": "1.0.0",
+  "description": "TypeScript definition of EventEmitter with keyof",
+  "scripts": {
+    "start": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kimamula/TypeScript-definition-of-EventEmitter-with-keyof.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "EventEmitter"
+  ],
+  "author": "kimamula",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kimamula/TypeScript-definition-of-EventEmitter-with-keyof/issues"
+  },
+  "homepage": "https://github.com/kimamula/TypeScript-definition-of-EventEmitter-with-keyof#readme",
+  "dependencies": {
+    "typescript": "^2.1.0-dev.20161104"
+  }
+}
