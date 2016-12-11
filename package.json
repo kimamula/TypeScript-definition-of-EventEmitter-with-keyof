@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/kimamula/TypeScript-definition-of-EventEmitter-with-keyof#readme",
   "dependencies": {
-    "typescript": "^2.1.0-dev.20161104"
+    "typescript": "^2.1.4"
   }
 }
