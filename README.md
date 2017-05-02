@@ -25,7 +25,31 @@ interface TypedEventEmitter<T> {
 
 ## So what?
 
-The definition of `fs.Writable`, for example,
+The definition of `fs.Writable`, for example, can be rewritten as follows,
+
+```ts
+export interface WritableEvents {
+  close: void;
+  drain: void;
+  error: Error;
+  finish: void;
+  pipe: Readable;
+  unpipe: Readable;
+}
+
+export class Writable implements events.TypedEventEmitter<WritableEvents>, NodeJS.WritableStream {
+  writable: boolean;
+  constructor(opts?: WritableOptions);
+  protected _write(chunk: any, encoding: string, callback: Function): void;
+  write(chunk: any, cb?: Function): boolean;
+  write(chunk: any, encoding?: string, cb?: Function): boolean;
+  end(): void;
+  end(chunk: any, cb?: Function): void;
+  end(chunk: any, encoding?: string, cb?: Function): void;
+}
+```
+
+which is much more DRY and simpler than [what is published in DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/8c65c84d30d181c36ffd00c77f85181e5350ef61/node/index.d.ts#L3262-L3337) (the following).
 
 ```ts
 export class Writable extends events.EventEmitter implements NodeJS.WritableStream {
@@ -103,31 +127,6 @@ export class Writable extends events.EventEmitter implements NodeJS.WritableStre
     removeListener(event: "finish", listener: () => void): this;
     removeListener(event: "pipe", listener: (src: Readable) => void): this;
     removeListener(event: "unpipe", listener: (src: Readable) => void): this;
-}
-```
-https://github.com/DefinitelyTyped/DefinitelyTyped/blob/8c65c84d30d181c36ffd00c77f85181e5350ef61/node/index.d.ts#L3262-L3337
-
-can be rewritten as follows.
-
-```ts
-export interface WritableEvents {
-  close: void;
-  drain: void;
-  error: Error;
-  finish: void;
-  pipe: Readable;
-  unpipe: Readable;
-}
-
-export class Writable implements events.TypedEventEmitter<WritableEvents>, NodeJS.WritableStream {
-  writable: boolean;
-  constructor(opts?: WritableOptions);
-  protected _write(chunk: any, encoding: string, callback: Function): void;
-  write(chunk: any, cb?: Function): boolean;
-  write(chunk: any, encoding?: string, cb?: Function): boolean;
-  end(): void;
-  end(chunk: any, cb?: Function): void;
-  end(chunk: any, encoding?: string, cb?: Function): void;
 }
 ```
 
