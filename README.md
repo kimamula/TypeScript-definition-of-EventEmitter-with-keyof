@@ -25,7 +25,7 @@ interface TypedEventEmitter<T> {
 
 ## So what?
 
-The definition of `fs.Writable`, for example, can be rewritten as follows,
+The definition of `fs.Writable`, for example, can be written as follows,
 
 ```ts
 export interface WritableEvents {
