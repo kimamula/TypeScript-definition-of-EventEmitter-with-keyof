@@ -19,8 +19,8 @@ const typedEventEmitter = new EventEmitter<{
 }>();
 
 typedEventEmitter
-  .on('foo', (arg: number) => console.log(Math.abs(arg)))
-  .on('bar', (arg: string) => console.log(arg.length))
+  .on('foo', (arg) => console.log(Math.abs(arg)))
+  .on('bar', (arg) => console.log(arg.length))
   .on('baz', () => console.log('baz'));
 
 typedEventEmitter.emit('foo', 1); // no error
