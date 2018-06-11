@@ -1,3 +1,8 @@
+# DEPRECATED
+
+As of TypeScript 2.8, threre is a better way.
+See https://medium.com/@bterlson/strongly-typed-event-emitters-2c2345801de8
+
 # TypeScript definition of EventEmitter with `keyof`
 
 ## Definition
